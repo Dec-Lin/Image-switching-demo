@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片切换实例</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <p id="p1">杨琴小宝贝正在来的路上......</p>
+        <a id="last" href="javasvript:;">
+            <</a> <a id="next" href="javasvript:;">>
+        </a>
+        <span id="span1">数量还在计算中......</span>
+        <img id="img1">
+    </div>
+
+    <script>
+        var oP = document.getElementById('p1');
+        var oLast = document.getElementById('last');
+        var oNext = document.getElementById('next');
+        var oSpan = document.getElementById('span1');
+        var oImg = document.getElementById('img1');
+        var arrUrl = ['img/1.jpg', 'img/2.jpg', 'img/3.jpg', 'img/4.jpg', 'img/5.jpg', 'img/6.jpg', 'img/7.jpg', 'img/8.jpg', 'img/9.jpg'];
+        var arrText = ['可爱', '好可爱', '超级可爱', '超级好可爱', '超级超级可爱', '超级无敌好可爱', '超级超级无敌可爱', '超级超级无敌好可爱', '超级超级无敌无敌可爱'];
+        var num = 0;
+
+
+        //初始化
+        function fnTab() {
+            oP.innerHTML = num + 1 + '/' + arrUrl.length;
+            oImg.src = arrUrl[num];
+            oSpan.innerHTML = arrText[num];
+        }
+        fnTab()
+
+        oNext.onclick = function () {
+            num++;
+            if (num == arrUrl.length) {
+                num = 0;
+            }
+            fnTab()
+        }
+        oLast.onclick = function () {
+            num--;
+            if (num == -1) {
+                num = arrUrl.length - 1;
+            }
+            fnTab()
+        }
+    </script>
+</body>
+
+</html>
